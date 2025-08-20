@@ -6,19 +6,19 @@ from textnode import TextNode, TextType
 class TestTextNode(unittest.TestCase):
     def test_eq(self):
         # Original equality test
-        node = TextNode("This is a text node", TextType.PLAIN)
-        node2 = TextNode("This is a text node", TextType.PLAIN)
+        node = TextNode("This is a text node", TextType.TEXT)
+        node2 = TextNode("This is a text node", TextType.TEXT)
         self.assertEqual(node, node2)
 
     def test_neq_text(self):
         # Different text should not be equal
-        node1 = TextNode("Text 1", TextType.PLAIN)
-        node2 = TextNode("Text 2", TextType.PLAIN)
+        node1 = TextNode("Text 1", TextType.TEXT)
+        node2 = TextNode("Text 2", TextType.TEXT)
         self.assertNotEqual(node1, node2)
 
     def test_neq_type(self):
         # Different text_type should not be equal
-        node1 = TextNode("Same text", TextType.PLAIN)
+        node1 = TextNode("Same text", TextType.TEXT)
         node2 = TextNode("Same text", TextType.LINK)
         self.assertNotEqual(node1, node2)
 
@@ -30,7 +30,7 @@ class TestTextNode(unittest.TestCase):
 
     def test_default_url_none(self):
         # url defaults to None
-        node = TextNode("Text without url", TextType.PLAIN)
+        node = TextNode("Text without url", TextType.TEXT)
         self.assertIsNone(node.url)
 
     def test_repr_format(self):
